@@ -1,86 +1,73 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
-
+import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
+import type { NextPage } from "next";
+import Head from "next/head";
+import Image from "next/image";
+import Header from "../components/Header";
+import { FaInstagram } from "react-icons/fa";
+import { AiFillGithub } from "react-icons/ai";
+import { useRouter } from "next/router";
+import Project from "../components/Project";
 const Home: NextPage = () => {
+  const router = useRouter();
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center py-2">
+    <div className=" bg-gradient-to-tr from-[#010f2a] to-[#2d0523] min-h-screen via-[#170723]">
       <Head>
-        <title>Create Next App</title>
+        <title>SaarDOO - homepage</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
-        <h1 className="text-6xl font-bold">
-          Welcome to{' '}
-          <a className="text-blue-600" href="https://nextjs.org">
-            Next.js!
-          </a>
-        </h1>
-
-        <p className="mt-3 text-2xl">
-          Get started by editing{' '}
-          <code className="rounded-md bg-gray-100 p-3 font-mono text-lg">
-            pages/index.tsx
-          </code>
-        </p>
-
-        <div className="mt-6 flex max-w-4xl flex-wrap items-center justify-around sm:w-full">
-          <a
-            href="https://nextjs.org/docs"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Documentation &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Find in-depth information about Next.js features and its API.
-            </p>
-          </a>
-
-          <a
-            href="https://nextjs.org/learn"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Learn &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Learn about Next.js in an interactive course with quizzes!
-            </p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Examples &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Discover and deploy boilerplate example Next.js projects.
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Deploy &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+      <Header />
+      {/* Large Card */}
+      <div className="flex text-white  justify-between p-36">
+        <div>
+          <div className="border-l-4 group space-y-3 px-5">
+            <h1 className="font-bold text-5xl group-hover:text-white/60 transition-all duration-700 cursor-pointer">
+              Saarthak Dutta
+            </h1>
+            <div className="group-hover:scale-100 text-white/10 group-hover:text-white group    h-0 group-hover:h-40 scale-0 transition-all  duration-700 ">
+              <h1 className="text-3xl font-semibold border-b border-white/40 py-2 w-fit">
+                About Me
+              </h1>
+              <div className="p-2  ">
+                <h2>The name's Saarthak Dutta | also known as SaarDOO</h2>
+                <h2>
+                  I am a fullstack developer who likes making fully functional
+                  websites
+                </h2>
+              </div>
+            </div>
+            <p className="text-white/40">Full Stack / data scientist</p>
+          </div>
         </div>
-      </main>
-
-      <footer className="flex h-24 w-full items-center justify-center border-t">
-        <a
-          className="flex items-center justify-center gap-2"
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-        </a>
-      </footer>
+        <div>
+          <div className="flex text-3xl font-light items-center border-b border-white/40 py-5 ">
+            <span className="text-4xl font-bold mb-2">01</span>/03
+            <div className="flex ml-10 gap-5 ">
+              <ChevronLeftIcon className=" w-5 font-extralight text-white/40" />
+              <p>I</p>
+              <ChevronRightIcon className="w-5 font-extralight text-white/40" />
+            </div>
+          </div>
+          <div className="p-3 flex gap-5">
+            <div
+              onClick={() => {
+                router.push("https://www.instagram.com/saardoo/");
+              }}
+            >
+              <FaInstagram className="h-5 w-5 object-contain cursor-pointer" />
+            </div>
+            <div
+              onClick={() => {
+                router.push("https://github.com/SaarD00");
+              }}
+            >
+              <AiFillGithub className="h-5 w-5 object-contain cursor-pointer" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <Project />
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
