@@ -8,10 +8,28 @@ import { AiFillGithub } from "react-icons/ai";
 import { useRouter } from "next/router";
 import Project from "../components/Project";
 import ContactMe from "../components/Contact";
+import { useState } from "react";
 const Home: NextPage = () => {
   const router = useRouter();
+  const [activeSection, setActiveSection] = useState(0);
+  const sectionIds = ["hero", "projects", "contact"];
+
+  const handleNextSection = () => {
+    const nextIndex = (activeSection + 1) % sectionIds.length;
+    const nextSectionId = sectionIds[nextIndex];
+    router.push(`#${nextSectionId}`);
+    setActiveSection(nextIndex);
+  };
+
+  const handlePrevSection = () => {
+    const nextIndex = (activeSection - 1) % sectionIds.length;
+    const nextSectionId = sectionIds[nextIndex];
+    router.push(`#${nextSectionId}`);
+    setActiveSection(nextIndex);
+  };
+
   return (
-    <div className=" bg-gradient-to-tr from-[#010f2a] to-[#2d0523] min-h-screen via-[#170723]">
+    <div className=" bg-gradient-to-tr from-[#010f2a] to-[#2d0523] min-h-scr overflow-hidden via-[#170723]">
       <Head>
         <title>SaarDOO - homepage</title>
         <link rel="icon" href="/favicon.ico" />
@@ -42,11 +60,20 @@ const Home: NextPage = () => {
           </div>
           <div>
             <div className=" text-3xl font-light hidden md:flex items-center border-b border-white/40 py-5 ">
-              <span className="text-4xl font-bold mb-2">01</span>/03
+              <span className="text-4xl font-bold mb-2">
+                {activeSection + 1}
+              </span>
+              /03
               <div className="flex ml-10 gap-5 ">
-                <ChevronLeftIcon className=" w-5 font-extralight text-white/40" />
+                <ChevronLeftIcon
+                  onClick={handlePrevSection}
+                  className=" w-5 font-extralight text-white/40"
+                />
                 <p>I</p>
-                <ChevronRightIcon className="w-5 font-extralight text-white/40" />
+                <ChevronRightIcon
+                  onClick={handleNextSection}
+                  className="w-5 font-extralight text-white/40"
+                />
               </div>
             </div>
             <div className="p-3 flex gap-5">

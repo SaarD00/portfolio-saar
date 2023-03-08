@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Bars3BottomLeftIcon } from "@heroicons/react/24/outline";
 const Header = () => {
   return (
-    <div className="flex justify-center sticky top-0 z-50 items-center md:justify-between h-fit bg-transparent w-full text-white p-6 ">
+    <div className="flex justify-center  fixed top-0 z-50 items-center md:justify-between h-fit bg-transparent w-full text-white p-6 ">
       <div>
         <h1 className="font-[550] hidden md:inline text-white text-lg">
           SaarDOO
