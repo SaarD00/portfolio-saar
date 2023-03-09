@@ -3,6 +3,7 @@ import React from "react";
 import { TbBrandNextjs } from "react-icons/tb";
 import { IoLogoNodejs } from "react-icons/io";
 import { SiTailwindcss } from "react-icons/si";
+import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
 function Projects() {
   const router = useRouter();
   return (
@@ -10,6 +11,21 @@ function Projects() {
       <h3 className="absolute top-24 text-2xl uppercase tracking-[20px] text-gray-500">
         Projects
       </h3>
+      <div className=" text-3xl font-light hidden md:flex absolute z-40 text-white items-center ml-[65rem] mb-96 border-b border-white/40 py-5 ">
+        <span className="text-4xl font-bold mb-2 text-white">{2}</span>
+        /03
+        <div className="flex ml-10 gap-5 ">
+          <ChevronLeftIcon
+            onClick={() => router.push("/")}
+            className=" w-5 font-extralight text-white/40"
+          />
+          <p>I</p>
+          <ChevronRightIcon
+            onClick={() => router.push("/#contact")}
+            className="w-5 font-extralight text-white/40"
+          />
+        </div>
+      </div>
 
       <div className="relative z-20 flex scrollbar-track-gray-400/20 scrollbar-thumb-[#155be6]/80 scrollbar-thin w-full snap-x snap-mandatory overflow-y-hidden overflow-x-scroll">
         <div className="flex h-screen w-screen  flex-shrink-0 snap-center flex-col items-center justify-center space-y-5 object-contain p-20 md:p-44">

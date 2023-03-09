@@ -12,7 +12,7 @@ import { useState } from "react";
 const Home: NextPage = () => {
   const router = useRouter();
   const [activeSection, setActiveSection] = useState(0);
-  const sectionIds = ["hero", "projects", "contact"];
+  const sectionIds = ["hero", "projects"];
 
   const handleNextSection = () => {
     const nextIndex = (activeSection + 1) % sectionIds.length;
@@ -43,16 +43,28 @@ const Home: NextPage = () => {
               <h1 className="font-bold text-5xl group-hover:text-white/60 transition-all duration-700 cursor-pointer">
                 Saarthak Dutta
               </h1>
-              <div className="group-hover:scale-100 text-white/10 group-hover:text-white group    h-0 group-hover:h-40 scale-0 transition-all  duration-700 ">
+              <div className="group-hover:scale-100 text-white/10 group-hover:text-white group    h-0 md:group-hover:h-64 group-hover:h-[28rem] scale-0 transition-all  duration-700 ">
                 <h1 className="text-3xl font-semibold border-b border-white/40 py-2 w-fit">
                   About Me
                 </h1>
                 <div className="p-2  ">
                   <h2>The name's Saarthak Dutta | also known as SaarDOO</h2>
                   <h2>
-                    I am a fullstack developer who likes making fully functional
-                    websites
+                    I am a 14 year old full stack developer knowing various web
+                    languagues
                   </h2>
+                  <h3 className="mt-2"> js, html, css with frameworks like</h3>
+                  <h3 className="mt-2">
+                    {" "}
+                    react, next js, tailwind css ( css library ),{" "}
+                  </h3>
+                  <h4 className="mt-2">
+                    I also know machine learning and data science
+                  </h4>
+                  <h5 className="mt-2">
+                    with the language python and packages numpy, tensorflow,
+                    pandas, etc.
+                  </h5>
                 </div>
               </div>
               <p className="text-white/40">Full Stack / data scientist</p>
@@ -60,9 +72,7 @@ const Home: NextPage = () => {
           </div>
           <div>
             <div className=" text-3xl font-light hidden md:flex items-center border-b border-white/40 py-5 ">
-              <span className="text-4xl font-bold mb-2">
-                {activeSection + 1}
-              </span>
+              <span className="text-4xl font-bold mb-2">1</span>
               /03
               <div className="flex ml-10 gap-5 ">
                 <ChevronLeftIcon

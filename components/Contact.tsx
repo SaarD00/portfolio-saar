@@ -1,6 +1,13 @@
 import React from "react";
-import { EnvelopeIcon, MapPinIcon, PhoneIcon } from "@heroicons/react/24/solid";
+import {
+  ChevronLeftIcon,
+  ChevronRightIcon,
+  EnvelopeIcon,
+  MapPinIcon,
+  PhoneIcon,
+} from "@heroicons/react/24/solid";
 import { useForm, SubmitHandler } from "react-hook-form";
+import { useRouter } from "next/router";
 
 type Inputs = {
   name: string;
@@ -11,6 +18,7 @@ type Inputs = {
 
 function ContactMe() {
   const { register, handleSubmit } = useForm<Inputs>();
+  const router = useRouter();
   const onSubmit: SubmitHandler<Inputs> = (formData) => {
     window.location.href = `mailto:astrosaard@gmail?subject=${formData.subject}&body=Hi, my name is ${formData.name}. ${formData.message} (${formData.email})`;
   };
@@ -19,6 +27,21 @@ function ContactMe() {
       <h3 className="absolute top-24 text-2xl uppercase tracking-[20px] text-gray-500">
         Contact
       </h3>
+      <div className=" text-3xl font-light hidden md:flex absolute z-40 text-white items-center ml-[65rem] mb-96 border-b border-white/40 py-5 ">
+        <span className="text-4xl font-bold mb-2 text-white">{3}</span>
+        /03
+        <div className="flex ml-10 gap-5 ">
+          <ChevronLeftIcon
+            onClick={() => router.push("/#projects")}
+            className=" w-5 font-extralight text-white/40"
+          />
+          <p>I</p>
+          <ChevronRightIcon
+            onClick={() => router.push("/")}
+            className="w-5 font-extralight text-white/40"
+          />
+        </div>
+      </div>
 
       <div className="flex flex-col space-y-10 ">
         <h4 className="text-center text-xl text-white font-semibold">
