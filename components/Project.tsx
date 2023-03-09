@@ -4,6 +4,7 @@ import { TbBrandNextjs } from "react-icons/tb";
 import { IoLogoNodejs } from "react-icons/io";
 import { SiTailwindcss } from "react-icons/si";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
+import Link from "next/link";
 function Projects() {
   const router = useRouter();
   return (
@@ -73,6 +74,36 @@ function Projects() {
             <p className="text-center text-sm md:text-left text-white ">
               A ecommerce store build using sanity.js next js tailwindcss and
               node js. fully functional cart and order system
+            </p>
+          </div>
+        </div>
+        <div className="flex h-screen w-screen  flex-shrink-0 snap-center flex-col items-center justify-center space-y-5 object-contain p-20 md:p-44">
+          <img
+            onClick={() => router.push("https://retio.vercel.app")}
+            src="https://cdn.discordapp.com/attachments/1018929979897163868/1082354162798448801/image.png"
+            className="mt-28 h-60 scale-125 md:scale-100  rounded-lg object-contain md:object-cover cursor-pointer"
+          />
+          <div className="max-w-6xl space-y-10 px-0 ">
+            <h4 className="text-center text-4xl text-white ">
+              <span className=" text-white/80 tracking-[20px] underline decoration-[#F7AB0A]/50">
+                RDC - booking
+              </span>
+            </h4>
+
+            <div className="flex items-center space-x-2 justify-center">
+              <TbBrandNextjs className="h-7 w-7 text-white" />
+              <IoLogoNodejs className="h-7 w-7 text-lime-400" />
+              <SiTailwindcss className="h-7 w-7 text-cyan-400" />
+            </div>
+            <p className="text-center text-sm md:text-left text-white ">
+              A website made for booking appointment of a hospital named rdc.
+              collaborated with{" "}
+              <Link
+                href="https://thevector.xyz"
+                className="border-b border-[#F7AB0A]"
+              >
+                vector
+              </Link>
             </p>
           </div>
         </div>
